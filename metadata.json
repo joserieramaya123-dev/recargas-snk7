@@ -1,0 +1,6 @@
+{
+  "name": "RECARGAS SNK 7 - Tienda Free Fire",
+  "description": "Tienda oficial de recargas de diamantes y membresías de Free Fire con Pago Móvil. Entregas seguras por ID de jugador.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

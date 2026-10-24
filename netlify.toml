@@ -1,0 +1,35 @@
+# Netlify Configuration for RECARGAS SNK 7
+# Framework: React + Vite Single Page Application (SPA)
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Redirige llamadas a /api/* hacia la función Netlify correspondiente
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+
+# SPA Fallback: Redirige todas las rutas a index.html con código 200 para navegación fluida
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Encabezados de seguridad y caché optimizada
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
